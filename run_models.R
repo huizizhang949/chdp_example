@@ -1,17 +1,21 @@
+# Set up packages
+pkgs_installed <- rownames(installed.packages())
+if(!any(pkgs_installed == 'mcclust.ext')) devtools::install_github('https://github.com/sarawade/mcclust.ext')
+if(!any(pkgs_installed == 'mniw')) devtools::install_github('https://github.com/mlysy/mniw.git')
+
 library(coda)
 library(mcclust.ext)
 library(mclust)
-library(pheatmap)
 library(scales) #for alpha()
-library(gridExtra)
-library(ggpubr)
-library(grid)
 library(RColorBrewer)
-library(chdp)
 library(pbapply)
+pkgs <- c('intervals', 'mvtnorm', 'extraDistr', 'Matrix', 'truncnorm', 'MCMCpack')
+install.packages(setdiff(pkgs, pkgs_installed))  
+
 
 setwd('~/chdp_example')
 
+# -------------------------------------
 # save posterior samples (both the full and the post-processing step), optimal clustering, ARI
 if (!file.exists('result')){
   dir.create('result')

@@ -8,7 +8,6 @@ library(mcclust.ext)
 library(coda)
 
 library(parallel) #mclapply
-library(pbmcapply) #pbmclapply for progress bar
 
 #----------------------------- Overall equation -------------------------
 mvn_ddp <- function(Y, x, niter, J, burn_in = 1000, thinning = 5, 

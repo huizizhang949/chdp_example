@@ -1,7 +1,3 @@
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-
 # 10 replicates, change rep_ind from 1 to 10
 D <- 5; J <- 3
 
@@ -39,7 +35,7 @@ px <- lapply(1:D,function(d) {
 set.seed(324+rep_ind)
 z <- lapply(1:D, function(d) {
   
-  apply(px[[d]], 1, function(x) rcat(1, prob=x))
+  apply(px[[d]], 1, function(x) extraDistr::rcat(1, prob=x))
   
   
 })
